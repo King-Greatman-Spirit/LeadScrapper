@@ -1,0 +1,53 @@
+# DJANGO COMMANDS
+python3 -m pip install --upgrade pip #Pip upgrade
+# Once upgraded, install virtualenv using pip3:
+python3 -m venv venv # Create virtual environment
+source venv/bin/activate  #for mac users
+venv/Scripts/activate  #for windows users
+
+django-admin startproject LeadScrapper
+python3 manage.py startapp scraper
+ls base
+python3 manage.py makemigrations
+python3 manage.py migrate
+pip3 install -r requirements.txt #Install all pkg in requirements.txt
+pip freeze > requirements.txt # move pkg to requirements.txt
+pip install # Install all pkgs
+python3 manage.py runserver #To run server
+python3 manage.py createsuperuser #To create admin user
+python3 manage.py collectstatic # Collects and prepares static files for production deployment.
+
+SUPERUSER LOGIN
+Username: leadscrapper
+Email address: leadscrapper@gmail.com
+Password: leadsxxxxx
+
+# GENERAL COMMANDS
+rm -rf api/ #to remove folder
+rm -rf src/* #to remove all directories in folder
+ls -le #display all folders with access
+cd .. #go back to the prev folders
+rm -fr webstacka # delete folder with git inside
+rm -r webstacka # delete folder 
+vim commands.txt
+cat commands.txt
+Esc :wq! Enter
+touch commands.txt
+Note that the tilde (~) represents your home directory.
+mv <source_file> ~ <destination_folder>  #to move a file to another folder 
+
+
+
+LIST OF WEBSITES TO SCRAPE 
+https://www.businesslist.com.ng/category/estate-agents
+
+url for the this is https://www.businesslist.com.ng/category/logistics/city:port-harcourt
+
+url for the details page is https://www.businesslist.com.ng/company/267492/call-bob-nigeria 
+
+
+businesses.connectnigeria.com/
+
+url for the this is https://businesses.connectnigeria.com/category/ngo
+
+url for the details page is https://businesses.connectnigeria.com/sterling-one-foundation-1267575

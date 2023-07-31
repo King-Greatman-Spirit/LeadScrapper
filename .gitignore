@@ -1,0 +1,10 @@
+__pycache__/
+venv
+.env
+.dockerignore
+.DS_Store
+*.sqlite3
+leadscrapper.json
+static
+staticfiles
+scraped_results.csv
