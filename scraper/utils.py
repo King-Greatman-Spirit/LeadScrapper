@@ -46,8 +46,17 @@ class BusinessList:
         social_media_pattern = "|".join(social_media_domains)
         return bool(re.search(social_media_pattern, url, re.IGNORECASE))
 
+    # Function to check if a business with the given name and address exists in the CSV file
+    def is_business_exists(self, business_name, address):
+        with open('scraped_results.csv', 'r', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile, delimiter='\t')
+            for row in reader:
+                if row['Business Name'] == business_name and row['Address'] == address:
+                    return True
+        return False
+
     # Function to scrape the website and extract business details
-    def scrape_website(self, city, category):
+    def scrape_website(self, city, category, amount=None):
         # Sanitize the user inputs for city and category
         city = self.sanitize_input(city)
         category = self.sanitize_input(category)
@@ -67,6 +76,10 @@ class BusinessList:
             # Extract business name and address from the business element
             business_name = business_element.select_one("h4 a")['title']
             address = business_element.select_one(".address").text.strip()
+
+            # Check if the business already exists in the CSV file, skip if it does
+            if self.is_business_exists(business_name, address):
+                continue
 
             # Extract the details link from the business element and form the full URL
             details_link_element = business_element.select_one("h4 a")
@@ -131,14 +144,21 @@ class BusinessList:
 
                 businesses.append(business_data)
 
+                # Break the loop if the desired amount of data is scraped
+                if amount is not None and idx >= int(amount):
+                    break
+
         return businesses
 
     # Function to save the scraped results to a CSV file
     def save_to_csv(self, results):
-        with open('scraped_results.csv', 'w', newline='', encoding='utf-8') as csvfile:
+        with open('scraped_results.csv', 'a', newline='', encoding='utf-8') as csvfile:
             fieldnames = ['S/N', 'Business Name', 'Address', 'Phone Numbers', 'Email Address', 'Website URL', 'Social URL']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter='\t')  # Use tab ("\t") as the delimiter
-            writer.writeheader()
+
+            # Check if the CSV file is empty, if so, write the header
+            if csvfile.tell() == 0:
+                writer.writeheader()
 
             # Add a serial number to each row and then write them to the CSV file
             for idx, result in enumerate(results, start=1):

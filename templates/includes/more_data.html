@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scraping Successful</title>
+    <title>More Data</title>
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -14,7 +14,7 @@
             padding: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 50px auto;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -30,13 +30,6 @@
             color: #333;
             text-align: center;
         }
-        .success-icon {
-            display: block;
-            margin: 0 auto;
-            font-size: 64px;
-            color: #00cc00;
-            margin-bottom: 10px;
-        }
         .go-back-btn {
             margin-top: 20px;
         }
@@ -45,12 +38,9 @@
 <body>
     <div class="container">
         <h1>Scraping Completed Successfully</h1>
-        <span class="success-icon">&#10004;</span>
-        <p>The data has been efficiently scraped and meticulously stored in the file "scraped_results.csv."</p>
-        <p>Stay ahead with valuable business insights and make informed decisions from the extracted information.</p>
-
-        <!-- Display the number of scraped businesses -->
-        <p>Scraped businesses: {{ num_scraped }}</p>
+        <p>The amount you specified is more than the data on the website.</p>
+        <p>Scraped data available: {{ num_scraped }}</p>
+        <p>Please adjust the amount and try again or scrape all available data.</p>
 
         <!-- Go Back Button using JavaScript -->
         <button class="btn btn-primary go-back-btn" onclick="goBack()">Go Back</button>
