@@ -1,48 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scraping Successful</title>
-    <!-- Add Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-        }
-        h1 {
-            color: #0066cc;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        p {
-            color: #333;
-            text-align: center;
-        }
-        .success-icon {
-            display: block;
-            margin: 0 auto;
-            font-size: 64px;
-            color: #00cc00;
-            margin-bottom: 10px;
-        }
-        .go-back-btn {
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}No Data Found{% endblock %}
+
+{% block content %}
     <div class="container">
         <h1>Scraping Completed Successfully</h1>
         <span class="success-icon">&#10004;</span>
@@ -56,10 +18,6 @@
         <button class="btn btn-primary go-back-btn" onclick="goBack()">Go Back</button>
     </div>
 
-    <!-- Add Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
         // JavaScript function to go back to the previous page
@@ -67,5 +25,4 @@
             window.history.back();
         }
     </script>
-</body>
-</html>
+{% endblock %}

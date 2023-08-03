@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>No Data Found</title>
-    <!-- Add Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Add your custom CSS here if needed -->
-    <style>
-        /* Add your custom CSS styles here if needed */
-    </style>
-</head>
-<body>
-    <div class="container mt-5">
-        <div class="jumbotron text-center">
-            <h1 class="display-4">No Data Found</h1>
-            <p class="lead">There is no more unscraped data for the specified location and sector.</p>
-            <a class="btn btn-primary" href="javascript:history.back()">Go Back</a>
-        </div>
+
+
+{% extends 'base.html' %}
+
+{% block title %}No Data Found{% endblock %}
+
+{% block content %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">No Data Found</h1>
+        <p class="lead">There is no more unscraped data for the specified location and sector.</p>
+        <a class="btn btn-primary" href="javascript:history.back()">Go Back</a>
     </div>
-</body>
-</html>
+{% endblock %}
